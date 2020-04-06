@@ -1,3 +1,4 @@
+import './index.css';
 const { sum, sub } = require('./math.js');
 
 console.log(sum(10, 20));

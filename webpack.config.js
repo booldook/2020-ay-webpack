@@ -12,6 +12,10 @@ module.exports = {
 					path.resolve("./sample-loader.js"),
 				]
 			},
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
 		],
 	},
 	output: {

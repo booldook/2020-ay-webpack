@@ -1,0 +1,22 @@
+{
+  "name": "39.webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack",
+    "help": "webpack --help",
+    "first": "webpack --mode development --entry ./index.js --output ./dist/main.js",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}

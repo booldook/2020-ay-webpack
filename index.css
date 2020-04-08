@@ -1,4 +1,7 @@
+html, body, div {margin: 0; padding: 0; box-sizing: border-box;}
 .sample {
+	height: 100vh;
 	color: red;
-	font-size: 8rem;
+	font-size: 4rem;
+	background: url('./img/Desert.jpg') no-repeat center;
 }

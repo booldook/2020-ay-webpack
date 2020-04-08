@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const moment = require('moment');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	mode: "development", // production
@@ -19,7 +22,13 @@ module.exports = {
 				// css-loader: css import
 				// style-loader: import 된 css의 적용
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				// use: ["style-loader", "css-loader"],
+				use: [{
+					loader: MiniCssExtractPlugin.loader,
+					options: {
+						esModule: true,
+					}
+				}, "css-loader"],
 			},
 			/* {
 				test: /\.(jpe?g|gif)$/,
@@ -55,9 +64,27 @@ module.exports = {
 				Build Datetime: ${moment(new Date()).format("YYYY-MM-DD HH:mm:ss")}
 			`,
 		}),
+		new webpack.DefinePlugin({
+			VERSION: JSON.stringify('v.1.0.0'),
+			'api.domain': JSON.stringify('http://example.com')
+		}),
+		new HtmlWebpackPlugin({
+			template: 'index.html',
+			minify: {
+				collapseWhitespace: true,
+				removeComments: true,
+			},
+			hash: true
+		}),
+		new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin({
+			filename: "[name].css"
+		}),
 	],
 	output: {
 		filename: '[name].js',
 		path: path.resolve("./dist"),
-	}
+	},
 }
+
+

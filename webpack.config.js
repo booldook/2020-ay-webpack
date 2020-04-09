@@ -14,9 +14,8 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				use: [
-					path.resolve("./sample-loader.js"),
-				]
+				exclude: /node_modules/,
+				loader: 'babel-loader',
 			},
 			{
 				// css-loader: css import
@@ -48,7 +47,7 @@ module.exports = {
 					{
 						loader: 'url-loader',
 						options: {
-							publicPath: './dist/',
+							publicPath: './',
 							name: '[name].[ext]?[hash]',
 							limit: 2028 // 2kb 이하만 처리
 						}
@@ -85,6 +84,10 @@ module.exports = {
 		filename: '[name].js',
 		path: path.resolve("./dist"),
 	},
+	devServer: {
+		contentBase: path.resolve("./dist"),
+		port: 8000,
+	}
 }
 
 

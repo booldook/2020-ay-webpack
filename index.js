@@ -10,5 +10,5 @@ console.log(VERSION);
 console.log(api.domain);
 
 document.addEventListener('DOMContentLoaded', () => {
-	document.querySelector(".sample").innerHTML = `<img src="${flight}">&nbsp;` + document.querySelector(".sample").innerHTML ;
-})
+	document.querySelector(".sample").innerHTML = `<img src="${flight}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` + document.querySelector(".sample").innerHTML ;
+});
